@@ -16,9 +16,9 @@ const root = path.resolve(__dirname, '..');
       page.on('pageerror', e => errors.push(e.message));
       await page.route('https://signal.test/**', async route => {
         const name = new URL(route.request().url()).pathname.slice(1) || 'index.html';
-        let body = fs.readFileSync(path.join(root,name),'utf8');
-        if (name==='game.js') body = body.replace("  $('#soundValue').textContent", "  window.testGame={getBoard:()=>board,startGame,actReveal,showHelp,beginTutorial};\n  $('#soundValue').textContent");
-        await route.fulfill({body, contentType:name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':'text/html'});
+        let body = fs.readFileSync(path.join(root,name));
+        if (name==='game.js') body = body.toString().replace("  $('#soundValue').textContent", "  window.testGame={getBoard:()=>board,startGame,actReveal,showHelp,beginTutorial};\n  $('#soundValue').textContent");
+        await route.fulfill({body, contentType:name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':name.endsWith('.webp')?'image/webp':name.endsWith('.png')?'image/png':'text/html'});
       });
       await page.addInitScript(() => localStorage.setItem('nightshift.v1',JSON.stringify({tutorialSeen:true,unlocked:100,coins:10000,prefs:{sound:false}})));
       await page.goto('https://signal.test/');
@@ -39,6 +39,24 @@ const root = path.resolve(__dirname, '..');
       await page.locator('#mainShopBtn').tap();
       for(let i=0;i<4;i++) {
         await page.locator('.store-tabs button').nth(i).tap(); await bounds('shop');
+        if(i===2||i===3){
+          assert.equal(await page.locator('.store-item').count(),i===2?18:11);
+          await page.waitForFunction(()=>[...document.querySelectorAll('.store-item img')].every(e=>e.complete&&e.naturalWidth===256));
+          if(width===390||width===1440)await page.screenshot({path:path.join(process.env.TEMP||root,`signal-jam-shop-${i}-${width}.png`),fullPage:true});
+          if(width===390){
+            for(let j=1;j<(i===2?18:11);j++){
+              await page.locator('.store-item').nth(j).getByRole('button',{name:/Preview/}).tap();
+              await page.waitForFunction(()=>{const e=document.querySelector('.cosmetic-detail-art img');return e?.complete&&e.naturalWidth===256});
+              await bounds('premium preview');
+              assert(await page.locator('.preview-stage').evaluate(e=>e.scrollWidth<=e.clientWidth+1),'Preview must not clip the sample board');
+              if(j===1) await page.screenshot({path:path.join(process.env.TEMP||root,`signal-jam-premium-${i}.png`),fullPage:true});
+              await page.locator('#shopPreviewClose').tap();
+            }
+            await page.locator('.store-item').nth(1).getByRole('button',{name:/Buy/}).tap();
+            const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('nightshift.v1')));
+            assert.equal(i===2?saved.mineSkin:saved.flagSkin,i===2?'orbit':'ember');
+          }
+        }
         await page.locator('.store-item button').filter({hasText:'PREVIEW'}).first().tap();
         await bounds('preview'); await page.locator('#shopPreviewClose').tap();
       }
@@ -72,7 +90,8 @@ const root = path.resolve(__dirname, '..');
         }
         await cdp.detach();
       }
-      await page.locator('#touchFlag').tap(); await cell(3).tap();
+      if(await page.locator('#touchFlag').isVisible()) {await page.locator('#touchFlag').tap();await cell(3).tap()}
+      else await cell(3).click({button:'right'});
       assert.match(await cell(3).getAttribute('class'),/flagged/);
       await page.locator('#pauseBtn').tap(); await bounds('pause');
       await page.locator('#resumeBtn').tap(); await cell(0).tap();

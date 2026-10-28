@@ -14,6 +14,9 @@ Signal Jam is an offline-friendly Minesweeper game built with plain HTML, CSS, a
 - **100-level Career:** Play 100 progressively harder, seeded challenges. Every tenth level is a special blackout board.
 - **Local progress:** Best times, scores, career progress, coins, cosmetics, and settings save in your browser. Settings include High/Low visual quality and sound on/off.
 - **Cosmetics:** Unlock themes, boards, mines, and flags with coins earned in Career.
+- **Selected collectible artwork:** 17 premium mines and 10 premium flags with
+  transparent 256px PNG masters, optimized WebP game assets and colored rarity
+  tiers. Classic defaults stay free. Prices range from 300 to 2,400 coins.
 - **Responsive controls:** Mouse, keyboard, and touch support.
 - **Offline play:** Once loaded, game data stays in your browser; no network service is needed.
 

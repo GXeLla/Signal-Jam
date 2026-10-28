@@ -266,6 +266,36 @@ button,a{-webkit-touch-callout:none;touch-action:manipulation}
 .tutorial-overlay{overflow:auto;padding:14px}
 .tutorial-card{max-height:calc(100dvh - 28px);overflow:auto}
 .dialog-actions{flex-wrap:wrap}
+
+/* Selected illustrated collectibles: larger art and visible rarity/price hierarchy. */
+[data-rarity="classic"]{--rarity:#a6b5c3}
+[data-rarity="uncommon"]{--rarity:#78d4a0}
+[data-rarity="rare"]{--rarity:#75baff}
+[data-rarity="epic"]{--rarity:#c699ff}
+[data-rarity="legendary"]{--rarity:#ffd076}
+.store-item[data-rarity]{grid-template-columns:96px minmax(0,1fr);padding:13px;gap:5px 14px;border-color:color-mix(in srgb,var(--rarity) 40%,#223541);border-left:3px solid var(--rarity);background:linear-gradient(120deg,color-mix(in srgb,var(--rarity) 7%,#0c1722),#0c1722)}
+.store-item[data-rarity]:hover,.store-item[data-rarity]:focus-within{border-color:var(--rarity)}
+.store-item[data-rarity] .swatch{grid-column:1;grid-row:1/5;width:96px;height:96px;background:#09121c;border:1px solid color-mix(in srgb,var(--rarity) 24%,#223541)}
+.store-item[data-rarity] .token-art{width:88px;height:88px;object-fit:contain;filter:none}
+.store-item[data-rarity]>strong{font-size:12px;line-height:1.4}
+.rarity-badge{display:block;font:8px/1.6 ui-monospace,monospace;letter-spacing:.14em;color:var(--rarity);margin-top:3px}
+.store-item[data-rarity] .item-state{font-size:10px;color:var(--rarity)}
+.store-item[data-rarity] .store-buttons{grid-column:2;grid-row:4;justify-content:flex-start;flex-wrap:wrap}
+.store-item[data-rarity] .store-buttons button{min-height:34px;padding:8px 10px}
+.cosmetic-image{object-fit:contain;image-rendering:auto;pointer-events:none}
+.cosmetic-detail{text-align:center;margin:10px auto 18px;color:var(--rarity)}
+.cosmetic-detail-art{display:grid;place-items:center;width:180px;height:180px;margin:auto;background:radial-gradient(circle,color-mix(in srgb,var(--rarity) 12%,#101c29),transparent 72%)}
+.cosmetic-detail-art .token-art{width:170px;height:170px;filter:none}
+.cosmetic-detail p{font:10px ui-monospace,monospace;letter-spacing:.12em}
+#shopScreen.previewing #shopPreviewBody.with-cosmetic-detail{flex-direction:column;align-items:center;justify-content:flex-start;gap:8px}
+.with-cosmetic-detail .cosmetic-detail{flex:none}
+.shop-preview .with-cosmetic-detail .preview-stage.preview-game{flex:none;width:100%}
+@media(max-width:600px){
+  .store-item[data-rarity]{grid-template-columns:80px minmax(0,1fr);gap:5px 11px;padding:11px}
+  .store-item[data-rarity] .swatch{width:80px;height:90px}
+  .store-item[data-rarity] .token-art{width:76px;height:84px}
+  .store-item[data-rarity] .store-buttons button{min-height:40px}
+}
 @media(pointer:coarse),(max-width:600px){
   .touch-flag{display:inline-block;min-height:44px}
   .board-footer>span:not(.touch-instructions){display:none}

@@ -1,0 +1,290 @@
+{
+  "mines": [
+    {
+      "id": "classic",
+      "name": "Classic Bomb",
+      "art": "bomb",
+      "price": 0,
+      "rarity": "classic"
+    },
+    {
+      "id": "orbit",
+      "name": "Cyan Reactor",
+      "art": "reactor",
+      "price": 2400,
+      "rarity": "legendary",
+      "source": "fantasy",
+      "choice": 1,
+      "image": "assets/cosmetics/reactor.webp"
+    },
+    {
+      "id": "tnt",
+      "name": "TNT Bundle",
+      "art": "tnt",
+      "price": 650,
+      "rarity": "rare",
+      "source": "fantasy",
+      "choice": 2,
+      "image": "assets/cosmetics/tnt.webp"
+    },
+    {
+      "id": "ember",
+      "name": "Molten Core",
+      "art": "lava",
+      "price": 1800,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 3,
+      "image": "assets/cosmetics/lava.webp"
+    },
+    {
+      "id": "clockwork",
+      "name": "Clockwork Mine",
+      "art": "clockwork",
+      "price": 1400,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 6,
+      "image": "assets/cosmetics/clockwork.webp"
+    },
+    {
+      "id": "pumpkin",
+      "name": "Harvest Jack",
+      "art": "pumpkin",
+      "price": 900,
+      "rarity": "rare",
+      "source": "fantasy",
+      "choice": 8,
+      "image": "assets/cosmetics/pumpkin.webp"
+    },
+    {
+      "id": "frost",
+      "name": "Frost Crystal",
+      "art": "frost",
+      "price": 1600,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 9,
+      "image": "assets/cosmetics/frost.webp"
+    },
+    {
+      "id": "spider",
+      "name": "Spider Sentinel",
+      "art": "spider",
+      "price": 2400,
+      "rarity": "legendary",
+      "source": "fantasy",
+      "choice": 12,
+      "image": "assets/cosmetics/spider.webp"
+    },
+    {
+      "id": "corsair",
+      "name": "Corsair Charge",
+      "art": "corsair",
+      "price": 1200,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 21,
+      "image": "assets/cosmetics/corsair.webp"
+    },
+    {
+      "id": "porcelain",
+      "name": "Blue Porcelain",
+      "art": "porcelain",
+      "price": 950,
+      "rarity": "rare",
+      "source": "fantasy",
+      "choice": 22,
+      "image": "assets/cosmetics/porcelain.webp"
+    },
+    {
+      "id": "slime",
+      "name": "Slime Cube",
+      "art": "slime",
+      "price": 1500,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 25,
+      "image": "assets/cosmetics/slime.webp"
+    },
+    {
+      "id": "sushi",
+      "name": "Sushi Surprise",
+      "art": "sushi",
+      "price": 1000,
+      "rarity": "rare",
+      "source": "fantasy",
+      "choice": 34,
+      "image": "assets/cosmetics/sushi.webp"
+    },
+    {
+      "id": "stone",
+      "name": "Quarry Stone",
+      "art": "stone",
+      "price": 300,
+      "rarity": "uncommon",
+      "source": "workshop",
+      "choice": 4,
+      "image": "assets/cosmetics/stone.webp"
+    },
+    {
+      "id": "dynamite",
+      "name": "Red Dynamite",
+      "art": "dynamite",
+      "price": 350,
+      "rarity": "uncommon",
+      "source": "workshop",
+      "choice": 6,
+      "image": "assets/cosmetics/dynamite.webp"
+    },
+    {
+      "id": "powder-keg",
+      "name": "Powder Keg",
+      "art": "powder-keg",
+      "price": 500,
+      "rarity": "uncommon",
+      "source": "workshop",
+      "choice": 21,
+      "image": "assets/cosmetics/powder-keg.webp"
+    },
+    {
+      "id": "pressure",
+      "name": "Pressure Plate",
+      "art": "pressure",
+      "price": 650,
+      "rarity": "rare",
+      "source": "workshop",
+      "choice": 8,
+      "image": "assets/cosmetics/pressure.webp"
+    },
+    {
+      "id": "acorn",
+      "name": "Iron Acorn",
+      "art": "acorn",
+      "price": 550,
+      "rarity": "uncommon",
+      "source": "workshop",
+      "choice": 20,
+      "image": "assets/cosmetics/acorn.webp"
+    },
+    {
+      "id": "cracked-ceramic",
+      "name": "Cracked Ceramic",
+      "art": "cracked-ceramic",
+      "price": 750,
+      "rarity": "rare",
+      "source": "workshop",
+      "choice": 22,
+      "image": "assets/cosmetics/cracked-ceramic.webp"
+    }
+  ],
+  "flags": [
+    {
+      "id": "classic",
+      "name": "Classic Pennant",
+      "art": "pennant",
+      "price": 0,
+      "rarity": "classic"
+    },
+    {
+      "id": "ember",
+      "name": "Lava Standard",
+      "art": "flag-lava",
+      "price": 1600,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 3,
+      "image": "assets/cosmetics/flag-lava.webp"
+    },
+    {
+      "id": "alloy",
+      "name": "Steel Spikes",
+      "art": "flag-steel",
+      "price": 1100,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 7,
+      "image": "assets/cosmetics/flag-steel.webp"
+    },
+    {
+      "id": "angler",
+      "name": "Angler Standard",
+      "art": "flag-angler",
+      "price": 2200,
+      "rarity": "legendary",
+      "source": "fantasy",
+      "choice": 17,
+      "image": "assets/cosmetics/flag-angler.webp"
+    },
+    {
+      "id": "signal",
+      "name": "Slime Pennant",
+      "art": "flag-slime",
+      "price": 1400,
+      "rarity": "epic",
+      "source": "fantasy",
+      "choice": 25,
+      "image": "assets/cosmetics/flag-slime.webp"
+    },
+    {
+      "id": "moon",
+      "name": "Silver Crescent",
+      "art": "flag-moon",
+      "price": 2400,
+      "rarity": "legendary",
+      "source": "fantasy",
+      "choice": 43,
+      "image": "assets/cosmetics/flag-moon.webp"
+    },
+    {
+      "id": "porcelain",
+      "name": "Porcelain Blossom",
+      "art": "flag-porcelain",
+      "price": 900,
+      "rarity": "rare",
+      "source": "fantasy",
+      "choice": 22,
+      "image": "assets/cosmetics/flag-porcelain.webp"
+    },
+    {
+      "id": "checkered",
+      "name": "Finish Line",
+      "art": "flag-checkered",
+      "price": 300,
+      "rarity": "uncommon",
+      "source": "cloth",
+      "choice": 18,
+      "image": "assets/cosmetics/flag-checkered.webp"
+    },
+    {
+      "id": "cross",
+      "name": "Crimson Cross",
+      "art": "flag-cross",
+      "price": 350,
+      "rarity": "uncommon",
+      "source": "cloth",
+      "choice": 19,
+      "image": "assets/cosmetics/flag-cross.webp"
+    },
+    {
+      "id": "pirate",
+      "name": "Jolly Roger",
+      "art": "flag-pirate",
+      "price": 650,
+      "rarity": "rare",
+      "source": "cloth",
+      "choice": 23,
+      "image": "assets/cosmetics/flag-pirate.webp"
+    },
+    {
+      "id": "silk",
+      "name": "Crimson Silk",
+      "art": "flag-silk",
+      "price": 500,
+      "rarity": "uncommon",
+      "source": "cloth",
+      "choice": 43,
+      "image": "assets/cosmetics/flag-silk.webp"
+    }
+  ]
+}
