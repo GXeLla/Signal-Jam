@@ -267,6 +267,74 @@ button,a{-webkit-touch-callout:none;touch-action:manipulation}
 .tutorial-card{max-height:calc(100dvh - 28px);overflow:auto}
 .dialog-actions{flex-wrap:wrap}
 
+/* A purchased theme owns the palette; the calendar only adds an event layer. */
+body{--scene-panel:color-mix(in srgb,var(--cyan) 7%,var(--bg));--scene-line:color-mix(in srgb,var(--cyan) 28%,#263847);--scene-button:color-mix(in srgb,var(--cyan) 11%,var(--bg));isolation:isolate}
+body.theme-aurora{--bg:#071317;--cyan:#72f0d3}
+body.theme-ember{--bg:#140d0b;--cyan:#ff9b61}
+body.theme-violet{--bg:#0d0b17;--cyan:#ad9bff}
+body.theme-halloween{--bg:#120c17;--cyan:#ff913f}
+body.theme-holiday{--bg:#091410;--cyan:#e7c978}
+body.theme-classic[data-event="halloween"]{--bg:#100e10;--cyan:#ffab50;--warm:#f6e7cb;--text:#f6e7cb}
+body.theme-classic[data-event="newyear"]{--bg:#160b14;--cyan:#efc96d;--warm:#f8e7b5;--text:#f8edda}
+body.theme-classic[data-event] .signal-wordmark .signal-path{fill:var(--cyan);stroke:var(--cyan)}
+body.theme-classic[data-event] .brand-mark{filter:sepia(1) saturate(2)}
+body[class*="theme-"]{background:radial-gradient(ellipse at 70% 30%,color-mix(in srgb,var(--cyan) 10%,var(--bg)),var(--bg) 72%);color:var(--text)}
+.shell{position:relative;z-index:1}
+body[class*="theme-"] :is(.rail,.board-wrap,.dialog,.option-row,.mode-cards button,.primary-action,.level-grid button,.game-control){background-color:var(--scene-panel);background-image:none;border-color:var(--scene-line)}
+body[class*="theme-"] :is(.primary-action,.game-control,.option-row,.mode-cards button):hover{background-color:var(--scene-button);border-color:var(--cyan)}
+body[class*="theme-"] :is(.board-head,.game-mode-label,.option-row b,.level-grid button.current,.career-current strong){color:var(--cyan)}
+body[class*="theme-"] :is(.topbar,.menu-footer,.footline,.options-list){border-color:var(--scene-line)}
+body:not(.blackout):not(.skin-alloy):not(.skin-prism):not(.skin-signal) .board>.cell:not(.revealed){background:linear-gradient(145deg,color-mix(in srgb,var(--cyan) 16%,#1b2937),color-mix(in srgb,var(--cyan) 7%,#121d29));border-color:var(--scene-line)}
+.season-decor{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.season-decor::before{content:'';position:absolute;inset:0;background-position:center bottom;background-size:100% 100%;background-repeat:no-repeat;opacity:.72}
+body[data-event="halloween"] .season-decor::before{background-image:url('assets/themes/halloween-decor.webp')}
+body[data-event="newyear"] .season-decor::before{background-image:url('assets/themes/newyear-decor.webp')}
+.header-meta{flex-wrap:wrap;justify-content:flex-end}
+.season-badge{font:8px/1.5 ui-monospace,monospace;letter-spacing:.1em;color:var(--cyan);padding:4px 6px;border:1px solid var(--scene-line);border-radius:3px;background:var(--bg)}
+.season-motion{position:absolute;top:var(--height);width:26px;height:18px;color:var(--cyan);opacity:.65;animation:season-drift 8s ease-in-out infinite;animation-delay:var(--delay)}
+.season-motion:nth-child(odd){left:var(--edge)}
+.season-motion:nth-child(even){right:var(--edge)}
+.season-bat svg{width:100%;height:100%}
+.season-snow{font-size:22px;color:#dcefff;width:22px;height:24px;animation:season-snow 13s linear infinite;animation-delay:var(--delay)}
+.season-confetti{width:5px;height:10px;background:#e6be68;animation:season-snow 17s linear infinite;animation-delay:var(--delay)}
+@keyframes season-drift{0%,100%{transform:translateY(0) rotate(-8deg);opacity:.3}50%{transform:translateY(30px) rotate(8deg);opacity:.75}}
+@keyframes season-snow{0%{transform:translateY(-70px) rotate(0);opacity:0}15%,80%{opacity:.65}100%{transform:translateY(100px) rotate(100deg);opacity:0}}
+.low-quality .season-motion{display:none}
+.page-hidden .season-motion{animation-play-state:paused}
+.game-paused .season-motion{animation-play-state:paused}
+body[class*="theme-"].blackout .board-wrap{background:#000;border-color:#172029}
+body[data-event] .hero-scene{background-position:center;background-repeat:no-repeat;background-size:contain}
+body[data-event] .hero-scene :is(.hero-core,.hero-orbit,.scene-coordinate,.scene-readout){visibility:hidden}
+body[data-event="halloween"] .hero-scene{background-image:url('assets/cosmetics/pumpkin.webp');background-size:65%}
+body[data-event="newyear"] .hero-scene{background-image:url('assets/themes/newyear-decor.webp');background-size:cover}
+.season-clock{display:none}
+body[data-event="newyear"] .season-clock{display:block;position:absolute;left:50%;top:50%;width:clamp(145px,21vw,250px);aspect-ratio:1;transform:translate(-50%,-50%);border:5px double #dbbc69;border-radius:50%;background:radial-gradient(circle,#170e19 61%,transparent 62%),repeating-conic-gradient(#e6c372 0 1deg,#261320 1deg 30deg);box-shadow:0 0 0 8px #291d24,0 0 0 9px #937446,inset 0 0 30px #e0b95a22}
+.season-clock::before,.season-clock::after{content:'';position:absolute;left:49%;bottom:50%;width:2%;height:34%;background:linear-gradient(#fff2c9,#a47d32);transform-origin:center bottom;border-radius:3px}
+.season-clock::before{animation:gala-clock 60s linear infinite}
+.season-clock::after{height:25%;transform:rotate(-30deg)}
+@keyframes gala-clock{to{transform:rotate(360deg)}}
+.low-quality .season-clock::before,.game-paused .season-clock::before,.page-hidden .season-clock::before{animation-play-state:paused}
+body.theme-aurora-frost .hero-scene{background-image:url('assets/themes/aurora-frost.webp');background-size:cover;border-radius:12px;mask-image:radial-gradient(ellipse,#000 40%,transparent 72%)}
+body.theme-aurora-frost .hero-scene :is(.hero-core,.hero-orbit,.scene-coordinate,.scene-readout){visibility:hidden}
+body.theme-aurora-frost .season-clock{display:none}
+body.theme-aurora-frost::before{content:'';position:fixed;inset:-4%;pointer-events:none;z-index:0;background:linear-gradient(115deg,transparent 55%,#7bffe311 65%,transparent 75%);animation:aurora-breathe 14s ease-in-out infinite alternate}
+@keyframes aurora-breathe{from{transform:translateX(-3%);opacity:.25}to{transform:translateX(3%);opacity:.8}}
+.low-quality.theme-aurora-frost::before{animation:none;opacity:.2}
+.page-hidden.theme-aurora-frost::before,.game-paused.theme-aurora-frost::before{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){body.theme-aurora-frost::before,.season-clock::before{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.season-motion{animation:none!important;opacity:.4}}
+body.theme-aurora-frost{--bg:#071527;--cyan:#9deaff;background:linear-gradient(#06122488,#061224bb),url('assets/themes/aurora-frost.webp') center center/cover fixed}
+body.theme-aurora-frost :is(.rail,.board-wrap,.dialog,.mode-cards button,.primary-action,.option-row){background-color:#0b2135e8;border-color:#6095b7}
+.swatch.theme-aurora-frost{background:url('assets/themes/aurora-frost.webp') center/cover!important}
+.shop-preview .preview-stage.preview-game.theme-aurora-frost{--bg:#071527;--cyan:#9deaff;background:linear-gradient(#07152788,#07152788),url('assets/themes/aurora-frost.webp') center/cover;border-color:#a8eaff}
+@media(max-width:600px){
+  .season-decor::before{background-size:auto 100%;opacity:.44}
+  .header-meta{max-width:125px;gap:3px}
+  .season-badge{font-size:7px;padding:2px 4px}
+  .season-motion{width:20px}
+  .season-decor{mask-image:linear-gradient(to right,#000,transparent 17%,transparent 83%,#000)}
+}
+
 /* Selected illustrated collectibles: larger art and visible rarity/price hierarchy. */
 [data-rarity="classic"]{--rarity:#a6b5c3}
 [data-rarity="uncommon"]{--rarity:#78d4a0}

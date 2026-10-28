@@ -20,6 +20,23 @@ Signal Jam is an offline-friendly Minesweeper game built with plain HTML, CSS, a
 - **Responsive controls:** Mouse, keyboard, and touch support.
 - **Offline play:** Once loaded, game data stays in your browser; no network service is needed.
 
+## Seasonal atmosphere and shop themes
+
+Halloween runs automatically from **October 24 through November 7**, with orange,
+ivory and black, bats, pumpkins and paper-cut scenery, without masks. **New Year
+Gala** runs from **December 24 through January 7**, with gold ribbons, a clock,
+ornaments, snowflakes and confetti. Dates repeat annually and use the player's
+local calendar. An open page checks every minute and on returning to the tab.
+
+Calendar decorations and purchased themes are separate layers. Classic receives
+the event's default palette; a selected shop theme keeps its own colors and
+surfaces while seasonal edge decorations remain. Equipping a theme never changes
+the selected mine, flag or board skin. Events do not change ownership.
+
+**Aurora Frost** is a permanent 3,200-coin shop theme with an illustrated polar
+wallpaper, frosted panels and a gentle aurora effect. Low quality and reduced
+motion stop decorative animations. Event decorations ignore pointer input.
+
 Each game tracks elapsed time and a score based on mines and time. Best score and best time are recorded independently for each Normal difficulty, custom board, and Career level. Career wins award coins.
 
 ## Controls
@@ -63,6 +80,8 @@ For browser regression checks, use an existing Playwright installation and Chrom
 ```sh
 node checks/mobile.cjs
 ```
+
+Seasonal date and theme-layer browser checks: `node checks/seasonal.cjs`.
 
 These checks cover seven phone/tablet/desktop sizes, long-press flags, cancelled
 gestures, internal grid dragging and edges, blackout level 10, rotation, win/loss

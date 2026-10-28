@@ -12,7 +12,8 @@ purple Epic and gold Legendary cards distinguish the tiers. All assets have the
 same 256px source resolution; rarity reflects the design, not a lower-quality
 version of the image. Themes and board prices are unchanged.
 
-The full shop now costs 31,550 coins. The earlier assumption that all cosmetics
+The full shop now costs 34,750 coins, including the permanent 3,200-coin Aurora
+Frost theme. The earlier assumption that all cosmetics
 could be bought by level 90 at an 88-point baseline no longer applies: that
 baseline earns 2,160 coins. Players choose which items to buy; higher scores earn
 larger first-clear rewards. Rewards, the one-reward-per-level rule and saved
