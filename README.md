@@ -25,6 +25,7 @@ Each game tracks elapsed time and a score based on mines and time. Best score an
 | --- | --- |
 | Left-click / tap | Reveal a cell |
 | Right-click | Flag a cell |
+| Hold a cell on a touchscreen | Flag or unflag without revealing |
 | Arrow keys | Move between cells |
 | Enter | Reveal selected cell |
 | F or Space | Flag selected cell |
@@ -33,6 +34,8 @@ Each game tracks elapsed time and a score based on mines and time. Best score an
 | H | Open the field guide |
 
 The first reveal on each board is safe.
+Dragging inside Active Grid pans boards that overflow. Boards that fit keep the
+page still, including blackout levels. Scroll outside the grid to move the page.
 
 ## Run locally
 
@@ -51,6 +54,18 @@ With Node.js installed, run:
 ```sh
 node tests.js
 ```
+
+For browser regression checks, use an existing Playwright installation and Chrome:
+
+```sh
+node checks/mobile.cjs
+```
+
+These checks cover seven phone/tablet/desktop sizes, long-press flags, cancelled
+gestures, internal grid dragging and edges, blackout level 10, rotation, win/loss
+panels, pause/resume, custom-board virtualization, menus, shop previews and tutorial.
+They use Chromium touch emulation; physical iPhone/Safari behavior still needs a
+device check. Playwright is a development test tool, not a game dependency.
 
 ## Saved data
 

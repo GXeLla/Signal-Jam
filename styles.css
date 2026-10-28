@@ -246,3 +246,41 @@ body.theme-aurora{--cyan:#72f0d3}body.theme-ember{--cyan:#ff9b61}body.theme-viol
 .core-prop{position:relative;display:block;width:32px;height:32px;perspective:120px;opacity:.9;filter:drop-shadow(0 0 7px #43c9f566);pointer-events:none}.core-prop span,.core-prop i,.core-prop b{position:absolute;display:block}.core-prop span{inset:16%;background:linear-gradient(135deg,#687684,#1d2934 45%,#91a5b3);transform:rotate(45deg) skew(-9deg,-9deg);animation:core-shell-charge 4.8s ease-in-out infinite}.core-prop .core-outline{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1;filter:drop-shadow(0 0 2px #8fdfff88);animation:core-outline-charge 4.8s ease-in-out infinite}.core-outline path{fill:none;stroke:#8fdfff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}.core-prop i{inset:37.5%;z-index:2;background:linear-gradient(135deg,#49c7ed,#164b68);transform:rotate(45deg);box-shadow:0 0 8px #52d5ff;animation:core-relay-charge 2.8s ease-in-out infinite}.core-prop b{inset:50%;z-index:2;background:#d5f9ff;transform:rotate(45deg);box-shadow:0 0 10px #62d9ff;animation:core-core-charge 2s ease-in-out infinite}.brand-mark{width:36px;height:36px;opacity:.96}.loading-mark{width:76px;height:76px;opacity:.94;filter:drop-shadow(0 0 13px #5ddcf477)}.low-quality .core-prop{filter:none;animation:none}.low-quality .core-prop span,.low-quality .core-prop .core-outline,.low-quality .core-prop i,.low-quality .core-prop b{animation:none;filter:none}.low-quality .loading-mark{filter:none}
 @keyframes core-shell-charge{0%,100%{filter:brightness(.9) drop-shadow(0 0 1px #5dcff244)}48%,58%{filter:brightness(1.14) drop-shadow(0 0 6px #62dbff99)}}@keyframes core-outline-charge{0%,100%{opacity:.75;filter:drop-shadow(0 0 1px #5dcff244)}48%,58%{opacity:1;filter:drop-shadow(0 0 5px #62dbff99)}}@keyframes core-relay-charge{0%,100%{filter:brightness(.92);box-shadow:0 0 6px #52d5ff55}45%,65%{filter:brightness(1.3);box-shadow:0 0 12px #52d5ffcc}}@keyframes core-core-charge{0%,100%{opacity:.72;box-shadow:0 0 6px #62d9ff88}45%,65%{opacity:1;box-shadow:0 0 13px #b7f5ff}}
 @media(prefers-reduced-motion:reduce){.loading-mark,.core-prop span,.core-prop .core-outline,.core-prop i,.core-prop b{animation:none!important}.core-prop,.core-prop span,.core-prop i,.core-prop b{filter:none!important}}
+
+/* Mobile controls and reports stay within the playable viewport. */
+.end-overlay{position:absolute;inset:0;z-index:6;display:grid;place-items:center;overflow:auto;padding:16px;background:#07111df2;overscroll-behavior:contain}
+.end-overlay .failed-card{width:min(420px,100%);min-width:0;max-width:100%;padding:20px;overflow-wrap:anywhere}
+.end-overlay .failed-card h2{font-size:clamp(21px,6vw,27px);margin:0 0 16px}
+.failed-actions{flex-wrap:wrap}
+.failed-actions button{min-height:44px;flex:1 1 100px}
+.board{flex-shrink:0;gap:3px}
+.board-wrap{justify-content:flex-start;align-items:flex-start;overscroll-behavior:contain;touch-action:none}
+.board-wrap.scroll-x{touch-action:pan-x}
+.board-wrap.scroll-y{touch-action:pan-y}
+.board-wrap.scroll-x.scroll-y{touch-action:pan-x pan-y}
+.board-wrap:has(.end-overlay){overflow:hidden;touch-action:pan-y}
+.board-wrap:has(.pause-mask:not(.hidden)){overflow:hidden;touch-action:none}
+.cell,.cell *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+button,a{-webkit-touch-callout:none;touch-action:manipulation}
+.touch-instructions{display:none}
+.tutorial-overlay{overflow:auto;padding:14px}
+.tutorial-card{max-height:calc(100dvh - 28px);overflow:auto}
+.dialog-actions{flex-wrap:wrap}
+@media(pointer:coarse),(max-width:600px){
+  .touch-flag{display:inline-block;min-height:44px}
+  .board-footer>span:not(.touch-instructions){display:none}
+  .board-footer>.touch-instructions{display:inline;color:#a9bfcc;font-size:10px}
+  .back-link,.game-control,.option-row,.store-tabs button,.shop-tabs button{min-height:44px}
+  input{font-size:16px}
+  .board-wrap:not(.oversized){height:clamp(240px,64dvh,560px);min-height:0;max-height:560px;flex:none}
+}
+@media(max-width:600px){
+  .shell{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right));padding-bottom:max(12px,env(safe-area-inset-bottom))}
+  .demo-layout{flex-wrap:wrap;justify-content:center;gap:14px;padding:12px}
+  .tutorial-step{flex:1 1 100px}
+  .board-head{gap:8px;flex-wrap:wrap}
+  .grid-readout{font-size:8px}
+  .end-overlay{padding:10px}
+  .end-overlay .failed-card{padding:16px 12px}
+  .end-overlay .failed-actions{display:grid;grid-template-columns:1fr;width:100%}
+}
